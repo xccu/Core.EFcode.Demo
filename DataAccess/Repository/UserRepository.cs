@@ -10,7 +10,7 @@ namespace DataAccess.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(DbContext dbContext) : base(dbContext)
+        public UserRepository(MySqlContext dbContext) : base(dbContext)
         {
 
         }

@@ -19,11 +19,19 @@ namespace WebAPI.Controllers
         private readonly IUserRepository _repository;
         private readonly MySqlContext _context;
 
-        public UserController(ILogger<UserController> logger,MySqlContext context)
+        //方式1：注入MySqlContext
+        //public UserController(ILogger<UserController> logger,MySqlContext context)
+        //{
+        //    _logger = logger;
+        //    _context = context;
+        //    _repository = new UserRepository(_context);
+        //}
+
+        //方式2：注入IUserRepository
+        public UserController(ILogger<UserController> logger, IUserRepository repository)
         {
             _logger = logger;
-            _context = context;
-            _repository = new UserRepository(_context);
+            _repository = repository;
         }
 
         [HttpGet]

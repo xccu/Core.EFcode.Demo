@@ -15,8 +15,8 @@ namespace DataAccess
 {
     public class BaseRepository<T> : IRepository<T> where T : class
     {
-        private readonly DbContext dbContext;
-        public BaseRepository(DbContext dbContext) => this.dbContext = dbContext;
+        private readonly MySqlContext dbContext;
+        public BaseRepository(MySqlContext dbContext) => this.dbContext = dbContext;
         public  bool Insert(T entity)
         {
             bool bRet = false;

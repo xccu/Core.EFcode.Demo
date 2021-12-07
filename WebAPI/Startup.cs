@@ -34,8 +34,15 @@ namespace WebAPI
             services.AddDbContext<MySqlContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("MySqlContext")));
 
-            services.AddSingleton(typeof(IRepository<>), typeof(BaseRepository<>));
-            //services.AddSingleton(typeof(IUserRepository), typeof(UserRepository));        
+            //services.AddSingleton(typeof(IRepository<>), typeof(BaseRepository<>));       
+
+            //组件具有依赖项，则可以从服务集合构建服务提供程序并从中获取必要的依赖项
+            //IServiceProvider provider = services.BuildServiceProvider();
+
+            //MySqlContext dbContext = provider.GetRequiredService<MySqlContext>();
+            //services.AddSingleton<IUserRepository>(new UserRepository(dbContext));
+
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllers();
 
