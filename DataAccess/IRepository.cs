@@ -15,9 +15,9 @@ namespace DataAccess
         bool Insert(T t);
         bool Update(T t);
         bool Delete(T t);
-        IEnumerable<T> GetAll();
-        IEnumerable<T> GetByCondition(Expression<Func<T, bool>> expression);
-        IEnumerable<T> GetBySql(String sql);
+        IQueryable<T> GetAll();
+        IQueryable<T> GetByCondition(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetBySql(String sql);
         T GetById(object id);
         bool IsExist(object id);
         int GetCount(T t);

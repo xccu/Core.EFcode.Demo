@@ -86,14 +86,14 @@ namespace DataAccess
             return  dbContext.SaveChanges() > 0;
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return dbContext.Set<T>().AsEnumerable();
+            return dbContext.Set<T>();
         }
 
-        public IEnumerable<T> GetByCondition(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetByCondition(Expression<Func<T, bool>> expression)
         {
-            return dbContext.Set<T>().Where(expression).AsEnumerable();
+            return dbContext.Set<T>().Where(expression);
         }
 
         public  T GetById(object id)
@@ -174,9 +174,9 @@ namespace DataAccess
             }
         }
 
-        public IEnumerable<T> GetBySql(string sql)
+        public IQueryable<T> GetBySql(string sql)
         {
-            List<T> list = dbContext.Set<T>(sql).ToList();
+            var list = dbContext.Set<T>(sql);
             return list;
         }
     }     

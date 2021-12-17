@@ -1,5 +1,5 @@
-﻿using DataAccess.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +17,13 @@ namespace DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasKey(e => e.id);
+            modelBuilder.Entity<User>();
+            modelBuilder.Entity<Course>();
+            modelBuilder.Entity<UserCourse>().HasKey(t => new { t.userId, t.courseId });
         }
+
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Course> Course { get; set; }
+        public virtual DbSet<UserCourse> UserCourse { get; set; }
     }
 }

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public interface IUserRepository : IRepository<User>
+    public interface ICourseRepository : IRepository<Course>
     {
+        IQueryable<Course> getByUser(int userId);
     }
 }

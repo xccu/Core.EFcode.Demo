@@ -2,16 +2,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataAccess.Model
+namespace Entity
 {
     [Table("user")]
     public class User
     {
         [Key]
         [Required]
-        [Column("id")]
+        [Column("USER_ID")]
         public int id { get; set; }
-        [Column("name")]
+        [Column("USER_NAME")]
         public String name { get; set; }
         [Column("password")]
         public String password { get; set; }

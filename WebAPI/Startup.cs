@@ -1,5 +1,4 @@
 using DataAccess;
-using DataAccess.Model;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +43,10 @@ namespace WebAPI
             //services.AddSingleton<IUserRepository>(new UserRepository(dbContext));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserCourseRepository, UserCourseRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+
+            services.AddScoped<CourseService>();
 
             services.AddControllers();
 

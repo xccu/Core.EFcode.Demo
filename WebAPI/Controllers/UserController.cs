@@ -1,9 +1,9 @@
 ﻿using DataAccess;
-using DataAccess.Model;
 using DataAccess.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         public IEnumerable<User> GetUser()
         {
             var users = _repository.GetAll();
-            return users;
+            return users.ToList();
         }
 
         [HttpGet]
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
         public IEnumerable<User> GetByQuery()
         {
             var user = _context.User.FromSqlRaw($"select * from user where id in(1,2)");
-            return user;
+            return user.ToList();
         }
 
         [HttpGet]

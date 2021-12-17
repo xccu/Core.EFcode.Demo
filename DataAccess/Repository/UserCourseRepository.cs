@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class UserRepository : BaseRepository<User>, IUserRepository
+    public class UserCourseRepository : BaseRepository<UserCourse>, IUserCourseRepository
     {
-        public UserRepository(MySqlContext dbContext) : base(dbContext)
+        public UserCourseRepository(MySqlContext dbContext) : base(dbContext)
         {
 
         }
-
-
-
     }
 
 }
