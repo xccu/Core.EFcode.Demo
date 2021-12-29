@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<User> GetUser()
+        public IEnumerable<User> GetUsers()
         {
             var users = _repository.GetAll();
             return users.ToList();

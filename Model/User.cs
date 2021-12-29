@@ -13,12 +13,14 @@ namespace Entity
         public int id { get; set; }
         [Column("USER_NAME")]
         public String name { get; set; }
-        [Column("password")]
+        [Column("PASSWORD")]
         public String password { get; set; }
-        [Column("age")]
+        [Column("AGE")]
         public int age { get; set; }
-        [Column("sex")]
+        [Column("SEX")]
         public String sex { get; set; }
+        [Column("RACE")]
+        public String race { get; set; }
 
     }
 }

@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return _service.GetCourses() ;
         }
 
-        //https://localhost:5001/course/userId/1
+        //https://localhost:5001/course/user/1
         [HttpGet]
         [Route("user/{userId}")]
         public GetCourseByUserDTO GetCourseByUser(int userId)
